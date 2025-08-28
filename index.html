@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bono Lashu Publishing Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQUDMGhNj9cv84svBJ6p04NtCe5LLVXte6Vg&s');
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem 5rem;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-color {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Service Colors */
+        .color-1 { background-color: #35ab9b; }
+        .color-2 { background-color: #3498db; }
+        .color-3 { background-color: #9b59b6; }
+        .color-4 { background-color: #e74c3c; }
+        .color-5 { background-color: #f39c12; }
+        .color-6 { background-color: #1abc9c; }
+        .color-7 { background-color: #d35400; }
+        .color-8 { background-color: #27ae60; }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pricing-header {
+            background-color: #35ab9b;
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-content {
+            padding: 1.5rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #35ab9b;
+            margin: 1.5rem 0;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            padding: 1.5rem;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 5px solid #35ab9b;
+        }
+        
+        .team-member h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member p {
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .pricing-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Bono<span>Lashu</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Packages</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bonolashu Publishing Services</h1>
+            <p>Bonolashu Publishers provides comprehensive book production services, guiding you through every step of the publishing journey. Whether you're an aspiring author or an established writer, we'll help bring your words to life and into the hands of your readers.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Publishing Services</h2>
+                <p>Transform your story into a masterpiece with our complete book production solutions</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-color color-1"></div>
+                    <div class="service-content">
+                        <h3>Manuscript Evaluation</h3>
+                        <p>Receive a professional assessment of your manuscript, including feedback on structure, storytelling, clarity, and overall impact before editing begins.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-2"></div>
+                    <div class="service-content">
+                        <h3>Editing & Proofreading</h3>
+                        <p>Enhance your story with expert editing, including developmental editing, copy editing, and proofreading, to ensure your book is polished, error-free, and engaging.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-3"></div>
+                    <div class="service-content">
+                        <h3>Book Layout & Typesetting</h3>
+                        <p>Design a visually appealing book interior with professional formatting that enhances readability and aligns with industry standards.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-4"></div>
+                    <div class="service-content">
+                        <h3>Cover Design</h3>
+                        <p>Get an eye-catching book cover tailored to your genre and audience, ensuring a strong first impression.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-5"></div>
+                    <div class="service-content">
+                        <h3>ISBN & Barcode Registration</h3>
+                        <p>Give your book a unique identity with an ISBN and barcode, making it market-ready and trackable.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-6"></div>
+                    <div class="service-content">
+                        <h3>Printing Services</h3>
+                        <p>Enjoy high-quality softcover and hardcover printing, customized to your preferences and budget.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-7"></div>
+                    <div class="service-content">
+                        <h3>Distribution & Marketing</h3>
+                        <p>Expand your book's reach with strategic distribution and marketing support to attract your readers.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-color color-8"></div>
+                    <div class="service-content">
+                        <h3>Audiobook Production</h3>
+                        <p>Transform your book into an immersive experience with professionally recorded audiobooks.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Publishing Packages</h2>
+                <p>Choose the package that best fits your publishing needs and budget</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic Package</h3>
+                        <p>Ideal for first-time authors</p>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Up to 15,000 words</li>
+                            <li>Basic Editing & Proofreading</li>
+                            <li>Book Layout</li>
+                            <li>Cover Design (1 draft, 1 revision)</li>
+                            <li>ISBN & Barcode</li>
+                            <li>5 Author Copies</li>
+                        </ul>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Request Quote</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Standard Package</h3>
+                        <p>Our most popular package</p>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Up to 25,000 words</li>
+                            <li>Manuscript Evaluation</li>
+                            <li>Comprehensive Editing</li>
+                            <li>Cover Design (3 drafts, 3 revisions)</li>
+                            <li>Book Mockups & 2 Posters</li>
+                            <li>10-15 Author Copies</li>
+                        </ul>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Request Quote</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium Package</h3>
+                        <p>For serious authors</p>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Up to 25,000 words</li>
+                            <li>Full Professional Editing</li>
+                            <li>Cover Design (5 drafts, 3 revisions)</li>
+                            <li>50 Author Copies</li>
+                            <li>5 Social Media Graphics</li>
+                            <li>Marketing Strategy</li>
+                        </ul>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Request Quote</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Premium Plus</h3>
+                        <p>Complete publishing solution</p>
+                    </div>
+                    <div class="pricing-content">
+                        <ul class="pricing-features">
+                            <li>Up to 25,000 words</li>
+                            <li>Full Professional Editing</li>
+                            <li>Cover Design (6 drafts, 4 revisions)</li>
+                            <li>100 Author Copies</li>
+                            <li>10 Marketing Graphics</li>
+                            <li>Book Launch Assistance</li>
+                        </ul>
+                        <div class="price"></div>
+                        <a href="#contact" class="btn">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #7f8c8d;">
+                Prices may vary based on the extent of work required during the publishing process. These costs are subject to change depending on the specifics of your manuscript. Manuscript evaluation is complimentary if you choose to publish with us; however, there will be a fee of R500 for evaluation if you decide not to proceed with publishing through our services.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Dedicated Publishing Team</h2>
+                <p>Meet the professionals who will bring your book to life</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://www.bonolashu.co.za/sitepad-data/uploads/2025/02/IMG_8851.jpeg" alt="Rotenda Gavhi" class="team-img">
+                    <h3>Rotenda Gavhi</h3>
+                    <p><strong>Senior Graphic Designer</strong></p>
+                    <p>Expert in Book Cover Design</p>
+                    <p>A creative powerhouse with expertise in book cover design, typesetting, and branding, ensuring visually striking and professional publications.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://www.bonolashu.co.za/sitepad-data/uploads/2025/02/7b5c8676-4ecb-4c44-befe-9263163c5340.jpeg" alt="Jurgen Namupira" class="team-img">
+                    <h3>Jurgen Namupira</h3>
+                    <p><strong>Publishing Consultant</strong></p>
+                    <p>Manuscript Evaluator | Editor | Proofreader</p>
+                    <p>A meticulous publishing consultant with a keen eye for detail, ensuring manuscripts are polished and publication-ready.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://www.bonolashu.co.za/sitepad-data/uploads/2025/02/6170a75f-4a5a-41b0-8d96-a6073c7cec8a.jpeg" alt="Ronewa Mukwevho" class="team-img">
+                    <h3>Ronewa Mukwevho</h3>
+                    <p><strong>Publishing Consultant</strong></p>
+                    <p>Manuscript Evaluator | Editor | Proofreader</p>
+                    <p>Passionate about refining storytelling, grammar, and structure to enhance the quality of every book we publish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Bonolashu</div>
+                <div class="footer-links">
+                    <a href="#services">Services</a>
+                    <a href="#pricing">Packages</a>
+                    <a href="#team">Our Team</a>
+                    <a href="mailto:info@bonolashu.co.za">Contact Us</a>
+                </div>
+                <p class="copyright">© 2025 Bono Lashu Publishers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
